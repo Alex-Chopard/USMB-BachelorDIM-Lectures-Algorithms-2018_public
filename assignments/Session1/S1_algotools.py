@@ -13,7 +13,7 @@ def average_above_zero (items):
 
   # Don't compute if items isn't an List (array)
   if type(items) is not list:
-    return ValueError('Type of items param need to be \'list\' and not ' + type(items))
+    return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   average = -1
   sum = 0
@@ -23,8 +23,13 @@ def average_above_zero (items):
   if itemsLength > 0:
     for item in items:
       if item > 0:
-        sum += item
+        sum += float(item)
+      else:
+        # Remove 1 to itemsLength if item isn't an positive value
+        itemsLength -= 1
     average = sum / itemsLength
+  else:
+    return ValueError('Items list must not be empty')
 
   return average
 
