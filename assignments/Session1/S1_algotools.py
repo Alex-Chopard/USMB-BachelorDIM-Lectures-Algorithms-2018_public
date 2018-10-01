@@ -2,17 +2,18 @@ print('Hello World')
 
 def average_above_zero (items):
   """
-    brief: compute the average of an given array only for positive values
-    Args:
-      items: array of positive values
-    return:
-      the computed average
-      or -1 if items prop is empty or if is not an array
+    Compute the average of an given array only for positive values.
+
+    @type items: list
+    @param items: List of positive values
+
+    @rtype: float
+    @return: Return the average of the list
   """
 
   # Don't compute if items isn't an List (array)
   if type(items) is not list:
-    return -1
+    return ValueError('Type of items param need to be \'list\' and not ' + type(items))
 
   average = -1
   sum = 0
