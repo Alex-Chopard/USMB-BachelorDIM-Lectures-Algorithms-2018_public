@@ -24,6 +24,7 @@ b=a+2
 mylist_sum=mylist+mylist2
 """
 
+print('Hello World')
 
 def average_above_zero(input_list):
     ##
