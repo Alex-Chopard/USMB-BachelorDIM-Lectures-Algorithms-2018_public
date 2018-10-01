@@ -1,4 +1,3 @@
-print('Hello World')
 
 def average_above_zero (items):
   """
@@ -33,7 +32,7 @@ def average_above_zero (items):
 
   return average
 
-
+# Some test
 average = average_above_zero([2, 5, 10])
 average2 = average_above_zero([])
 average3 = average_above_zero([-1, 2, 4])
