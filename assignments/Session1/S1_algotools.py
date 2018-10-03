@@ -1,5 +1,5 @@
 
-def average_above_zero (items):
+def averageAboveZero (items):
   """
     Compute the average of an given array only for positive values.
 
@@ -33,17 +33,18 @@ def average_above_zero (items):
   return average
 
 # Some test for average_above_zero function
-average = average_above_zero([2, 5, 10])
-average2 = average_above_zero([])
-average3 = average_above_zero([-1, 2, 4])
-average4 = average_above_zero('sdfndsjk')
+average = averageAboveZero([2, 5, 10])
+average2 = averageAboveZero([])
+average3 = averageAboveZero([-1, 2, 4])
+average4 = averageAboveZero('sdfndsjk')
 
+# Print results
 print('Average of [2, 5, 10] is : ' + str(average))
 print('Average of [] is : ' + str(average2))
 print('Average of [-1, 2, 4] is : ' + str(average3))
 print('Average of \'sdfndsjk\' is : ' + str(average4))
 
-def max_value (items):
+def maxValue (items):
   """
     Function for found the max value of list
 
@@ -59,26 +60,27 @@ def max_value (items):
     return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   itemsLength = len(items)
-  maxValue = None
+  maxVal = None
 
   if itemsLength > 0:
     for item in items:
       number = float(item)
-      if maxValue == None or number > maxValue:
-        maxValue = number
+      if maxVal == None or number > maxVal:
+        maxVal = number
   else:
     return ValueError('Items list must not be empty')
 
-  return maxValue, 1
+  return maxVal, 1
 
 
-# Some test for max_value function
-average = max_value([2, 5, 10])
-average2 = max_value([])
-average3 = max_value([-1, 2, 4])
-average4 = max_value('sdfndsjk')
+# Some test for maxValue function
+average = maxValue([2, 5, 10])
+average2 = maxValue([])
+average3 = maxValue([-1, 2, 4])
+average4 = maxValue('sdfndsjk')
 
-print('max_value of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
-print('max_value of [] is : ' + str(average2[1]) + ' and index is : ' + str(average2[0]))
-print('max_value of [-1, 2, 4] is : ' + str(average3[1]) + ' and index is : ' + str(average3[0]))
-print('max_value of \'sdfndsjk\' is : ' + str(average4[1]) + ' and index is : ' + str(average4[0]))
+# Print results
+print('maxValue of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
+print('maxValue of [] is : ' + str(average2[1]) + ' and index is : ' + str(average2[0]))
+print('maxValue of [-1, 2, 4] is : ' + str(average3[1]) + ' and index is : ' + str(average3[0]))
+print('maxValue of \'sdfndsjk\' is : ' + str(average4[1]) + ' and index is : ' + str(average4[0]))
