@@ -81,6 +81,6 @@ average4 = maxValue('sdfndsjk')
 
 # Print results
 print('maxValue of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
-print('maxValue of [] is : ' + str(average2[1]) + ' and index is : ' + str(average2[0]))
+print('maxValue of [] is : ' + str(average2))
 print('maxValue of [-1, 2, 4] is : ' + str(average3[1]) + ' and index is : ' + str(average3[0]))
-print('maxValue of \'sdfndsjk\' is : ' + str(average4[1]) + ' and index is : ' + str(average4[0]))
+print('maxValue of \'sdfndsjk\' is : ' + str(average4))
