@@ -85,3 +85,32 @@ print('maxValue of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + st
 print('maxValue of [] is : ' + str(average2))
 print('maxValue of [-1, 2, 4] is : ' + str(average3[1]) + ' and index is : ' + str(average3[0]))
 print('maxValue of \'sdfndsjk\' is : ' + str(average4))
+
+
+
+def reverseTable (items):
+  """
+    Function for reverte an list
+
+    @type items: list
+    @param items: List of values to reverte
+
+    @rtype: list
+    @return: Return reverted list
+  """
+
+  # Don't compute if items isn't an List (array)
+  if type(items) is not list:
+    return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
+
+  return items[::-1]
+
+# Some test for reverseTable function
+reverted = reverseTable([2, 5, 10])
+reverted2 = reverseTable([2, 'dscjk', [1, 2]])
+reverted3 = reverseTable('sdfndsjk')
+
+# Print results
+print('reverseTable of [2, 5, 10] is : ' + str(reverted))
+print('reverseTable of [2, \'dscjk\', [1, 2]] is : ' + str(reverted2))
+print('reverseTable of \'sdfndsjk\' is : ' + str(reverted3))
