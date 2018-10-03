@@ -62,6 +62,7 @@ def maxValue (items):
   itemsLength = len(items)
   maxVal = None
 
+  # Find max number in items list
   if itemsLength > 0:
     for item in items:
       number = float(item)
