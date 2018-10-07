@@ -196,7 +196,7 @@ def removeWhitespace (string):
     @param string: The string with whitespaces
 
     @rtype: str
-    @return: Return the smae string but whitout whitespaces
+    @return: Return the saem string but whitout whitespaces
   """
   if (type(string) is not str):
     return ValueError('Type of string must be \'str\' and not ' + str(type(string)))
@@ -208,3 +208,25 @@ sws2 = removeWhitespace(561)
 
 print('removeWhitespace of \'dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ\' is : ' + str(sws))
 print('removeWhitespace of 561 is : ' + str(sws2))
+
+def shuffle (array):
+  """
+    Useless function how shuffle an given list
+
+    @type array: list
+    @param array: The list how need to be shiffuled
+
+    @rtype: list
+    @return: Return the shuffled list
+  """
+  if (type(array) is not list):
+    return ValueError('Type of array must be \'list\' and not ' + str(type(array)))
+
+  random.shuffle(array)
+  return array
+
+shuf = shuffle([i for i in range(10)])
+shuf2 = shuffle(561)
+
+print('shuffle of ' + str([i for i in range(10)]) + ' is : ' + str(shuf))
+print('shuffle of 561 is : ' + str(shuf2))
