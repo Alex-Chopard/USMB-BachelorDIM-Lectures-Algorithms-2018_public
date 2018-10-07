@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 def averageAboveZero (items):
   """
@@ -115,3 +116,75 @@ reverted3 = reverseTable('sdfndsjk')
 print('reverseTable of [2, 5, 10] is : ' + str(reverted))
 print('reverseTable of [2, \'dscjk\', [1, 2]] is : ' + str(reverted2))
 print('reverseTable of \'sdfndsjk\' is : ' + str(reverted3))
+
+'''
+def roiBbox (inputImage) :
+  """
+    Function compute the boundary box of an binary image
+
+    @type inputImage: numpy array
+    @param inputImage: The binary image
+
+    @rtype: numpy array
+    @return: Return boundary box of an binary image
+  """
+
+  return False
+
+# Some test for roiBbox function
+boundary = roiBbox(np.array([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+
+print(boundary)
+'''
+
+
+def randomFillSparse (table, k):
+  """
+    Function fill k cells at random position with 'X'
+
+    @type table: numpy array
+    @param table: The table of chars
+
+    @type k: int
+    @param k: Number of cells how need to be fill.
+
+    @rtype: numpy array
+    @return: Return the filled array
+  """
+
+  if (type(k) is not int):
+    return ValueError('Type of k must be \'int\' and not ' + str(type(k)))
+  if (type(table) is not np.ndarray):
+    return ValueError('Type of k must be \'numpy.ndarray\' and not ' + str(type(table)))
+
+  shape = table.shape
+
+  if (k > shape[0] * shape[1]):
+    k = shape[0] * shape[1]
+  xMax = shape[1] - 1
+  yMax = shape[0] - 1
+
+  while k > 0:
+    k -= 1
+    x = random.randint(0, xMax)
+    y = random.randint(0, yMax)
+    if (table[y, x] == 'X'):
+      k += 1
+    else:
+      table[y, x] = 'X'
+
+  return table
+
+
+
+# Some test for randomFillSparse function
+rand = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 2)
+rand2 = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 'dd')
+rand3 = randomFillSparse([['', '', ''], ['', '', '']], 2)
+rand4 = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 20)
+
+print('randomFillSparse of np[['', '', ''], ['', '', '']], 2 is : ' + str(rand))
+print('randomFillSparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand2))
+print('randomFillSparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand3))
+print('randomFillSparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand4))
+
