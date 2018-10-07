@@ -232,7 +232,34 @@ print('shuffle of ' + str([i for i in range(10)]) + ' is : ' + str(shuf))
 print('shuffle of 561 is : ' + str(shuf2))
 
 def sortSelective (array):
-  return False
+  """
+    Function how sort the given array
+
+    @type array: list
+    @param array: The list how need to be sorted
+
+    @rtype: list
+    @return: Return the sorted list
+  """
+  if (type(array) is not list):
+    return ValueError('Type of array must be \'list\' and not ' + str(type(array)))
+  
+  n = len(array)
+
+  for j in range(n - 1):
+    iMin = j
+    for i in range(j + 1, n):
+      if (array[i] < array[iMin]):
+        iMin = i
+    
+    if (iMin != j):
+      #swape value
+      tmp = array[i]
+      array[i] = array[i + 1]
+      array[i + 1] = tmp
+
+
+  return array
 
 def sortBubble (array):
   """
@@ -261,6 +288,9 @@ def sortBubble (array):
         array[i + 1] = tmp
         swapped = True
   return array
-array = [10, 15, 7, 1, 3, 3, 9]
 
-print('Sorted table = ' + str(sortBubble(array)))
+array = [10, 15, 7, 1, 3, 3, 9]
+array2 = [10, 15, 7, 1, 3, 3, 9]
+
+print('[sortBubble] Sorted table = ' + str(sortBubble(array)))
+print('[sortSelective] Sorted table = ' + str(sortBubble(array2)))
