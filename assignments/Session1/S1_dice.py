@@ -1,12 +1,24 @@
 from enum import Enum
 import random
 
+MAX_SCORES = 100
+
+# Enum for identify types of players
 class TypeOfPlayers (Enum):
   PLAYER = 'Player'
   COMPUTER = 'Computer'
 
 def gameIsEnded (scores):
-  if (scores[TypeOfPlayers.PLAYER] >= 100 or scores[TypeOfPlayers.COMPUTER] >= 100):
+  """
+    Check if the game is ended with the scores table.
+
+    @type scores: Dict
+    @param scores: The Dict of scores of players
+
+    @rtype: boolean
+    @return: Return True if a player win the game, or False if no user win.
+  """
+  if (scores[TypeOfPlayers.PLAYER] >= MAX_SCORES or scores[TypeOfPlayers.COMPUTER] >= MAX_SCORES):
     return True
   else:
     return False
@@ -59,7 +71,7 @@ def diceGame ():
     whoPlay = switchPlayer(whoPlay)
 
   result = ''
-  if (gameIsEnded(scores) and scores[TypeOfPlayers.PLAYER] >= 100):
+  if (gameIsEnded(scores) and scores[TypeOfPlayers.PLAYER] >= MAX_SCORES):
     result = 'WIN '
   else:
     result = 'LOSE'
