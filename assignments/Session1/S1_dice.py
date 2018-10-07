@@ -1,4 +1,5 @@
 from enum import Enum
+import random
 
 class TypeOfPlayers (Enum):
   PLAYER = 'Player'
@@ -17,6 +18,27 @@ def switchPlayer (whoPlay):
     whoPlay = TypeOfPlayers.PLAYER
   return whoPlay
 
+def playerPlayed ():
+  tourEnded = False
+  currentScore = 0
+
+  while not tourEnded:
+    print('Current score : ' + str(currentScore))
+    roll = input('Roll the dice ?(y/n)')
+    if (type(roll) is str and (roll == 'y' or roll == 'Y' or roll == 'yes' or roll == 'Yes')):
+      dice = random.randint(1, 6)
+      print('Result : ' + str(dice))
+      if (dice == 1):
+        tourEnded = True
+        currentScore = 0
+        print('You optained 1, turn has stoped and next')
+      else:
+        currentScore += dice
+    else:
+      tourEnded = True
+
+  return currentScore
+
 def diceGame ():
   scores = { TypeOfPlayers.PLAYER: 0, TypeOfPlayers.COMPUTER: 0 }
   whoPlay = TypeOfPlayers.COMPUTER
@@ -24,11 +46,16 @@ def diceGame ():
   while not gameIsEnded(scores):
     print('----------------------------------------------------------')
     print('Scores :')
-    print('        - You : ' + str(scores[TypeOfPlayers.PLAYER]))
-    print('        - Computer : ' + str(scores[TypeOfPlayers.COMPUTER]) + '\n')
+    print('     - You : ' + str(scores[TypeOfPlayers.PLAYER]))
+    print('     - Computer : ' + str(scores[TypeOfPlayers.COMPUTER]) + '\n')
 
     print('How play : ' + str(whoPlay.value))
-    scores[whoPlay] += 10
+
+    if (whoPlay == TypeOfPlayers.PLAYER):
+      scores[TypeOfPlayers.PLAYER] += playerPlayed()
+    else:
+      scores[TypeOfPlayers.COMPUTER] += random.randint(1, 6)
+
     whoPlay = switchPlayer(whoPlay)
 
   result = ''
