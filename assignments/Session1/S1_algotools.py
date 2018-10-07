@@ -92,7 +92,7 @@ print('maxValue of \'sdfndsjk\' is : ' + str(average4))
 
 def reverseTable (items):
   """
-    Function for reverte an list
+    Useless function for reverte an list
 
     @type items: list
     @param items: List of values to reverte
@@ -188,3 +188,23 @@ print('randomFillSparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(r
 print('randomFillSparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand3))
 print('randomFillSparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand4))
 
+def removeWhitespace (string):
+  """
+    Useless function how remove all whitespaces of string
+
+    @type string: numpy str
+    @param string: The string with whitespaces
+
+    @rtype: str
+    @return: Return the smae string but whitout whitespaces
+  """
+  if (type(string) is not str):
+    return ValueError('Type of string must be \'str\' and not ' + str(type(string)))
+
+  return string.replace(' ', '')
+
+sws = removeWhitespace('dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ')
+sws2 = removeWhitespace(561)
+
+print('removeWhitespace of \'dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ\' is : ' + str(sws))
+print('removeWhitespace of 561 is : ' + str(sws2))
