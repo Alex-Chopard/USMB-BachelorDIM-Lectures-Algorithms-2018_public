@@ -4,11 +4,11 @@ import random
 MAX_SCORES = 100
 
 # Enum for identify types of players
-class TypeOfPlayers (Enum):
+class Type_of_players (Enum):
   PLAYER = 'Player'
   COMPUTER = 'Computer'
 
-def gameIsEnded (scores):
+def game_is_ended (scores):
   """
     Check if the game is ended with the scores table.
 
@@ -19,30 +19,30 @@ def gameIsEnded (scores):
     @return: Return True if a player win the game, or False if no user win.
   """
 
-  if (scores[TypeOfPlayers.PLAYER] >= MAX_SCORES or scores[TypeOfPlayers.COMPUTER] >= MAX_SCORES):
+  if (scores[Type_of_players.PLAYER] >= MAX_SCORES or scores[Type_of_players.COMPUTER] >= MAX_SCORES):
     return True
   else:
     return False
 
-def switchPlayer (whoPlay):
+def switch_player (who_play):
   """
     Function for switch the player
 
-    @type whoPlay: TypeOfPlayers
+    @type whoPlay: Type_of_players
     @param whoPlay: The current player
 
-    @rtype: TypeOfPlayers
+    @rtype: Type_of_players
     @return: Return the new user who play
   """
 
-  if (whoPlay == TypeOfPlayers.PLAYER):
-    whoPlay = TypeOfPlayers.COMPUTER
+  if (who_play == Type_of_players.PLAYER):
+    who_play = Type_of_players.COMPUTER
   else:
-    whoPlay = TypeOfPlayers.PLAYER
+    who_play = Type_of_players.PLAYER
 
-  return whoPlay
+  return who_play
 
-def playerPlayed ():
+def player_played ():
   """
     Function for manager the real player when he play
 
@@ -50,11 +50,11 @@ def playerPlayed ():
     @return: Return the scores optain by the player
   """
 
-  tourEnded = False
-  currentScore = 0
+  tour_ended = False
+  current_score = 0
 
-  while not tourEnded:
-    print('Current score : ' + str(currentScore))
+  while not tour_ended:
+    print('Current score : ' + str(current_score))
     roll = input('Roll the dice ?(y/n)')
 
     # Check if the player when to roll the dice one more time.
@@ -63,17 +63,17 @@ def playerPlayed ():
       print('Result : ' + str(dice))
       # If the player optain 1, then exit the function
       if (dice == 1):
-        tourEnded = True
-        currentScore = 0
+        tour_ended = True
+        current_score = 0
         print('You optained 1, turn has stoped and next')
       else:
-        currentScore += dice
+        current_score += dice
     else:
-      tourEnded = True
+      tour_ended = True
 
-  return currentScore
+  return current_score
 
-def diceGame ():
+def dice_game ():
   """
     Function for manage all the game.
 
@@ -81,26 +81,26 @@ def diceGame ():
     @return: Return None when the game is ended
   """
   
-  scores = { TypeOfPlayers.PLAYER: 0, TypeOfPlayers.COMPUTER: 0 }
-  whoPlay = TypeOfPlayers.COMPUTER
+  scores = { Type_of_players.PLAYER: 0, Type_of_players.COMPUTER: 0 }
+  who_play = Type_of_players.COMPUTER
 
-  while not gameIsEnded(scores):
+  while not game_is_ended(scores):
     print('----------------------------------------------------------')
     print('Scores :')
-    print('     - You : ' + str(scores[TypeOfPlayers.PLAYER]))
-    print('     - Computer : ' + str(scores[TypeOfPlayers.COMPUTER]) + '\n')
+    print('     - You : ' + str(scores[Type_of_players.PLAYER]))
+    print('     - Computer : ' + str(scores[Type_of_players.COMPUTER]) + '\n')
 
-    print('How play : ' + str(whoPlay.value))
+    print('How play : ' + str(who_play.value))
 
-    if (whoPlay == TypeOfPlayers.PLAYER):
-      scores[TypeOfPlayers.PLAYER] += playerPlayed()
+    if (who_play == Type_of_players.PLAYER):
+      scores[Type_of_players.PLAYER] += player_played()
     else:
-      scores[TypeOfPlayers.COMPUTER] += random.randint(1, 6)
+      scores[Type_of_players.COMPUTER] += random.randint(1, 6)
 
-    whoPlay = switchPlayer(whoPlay)
+    who_play = switch_player(who_play)
 
   result = ''
-  if (gameIsEnded(scores) and scores[TypeOfPlayers.PLAYER] >= MAX_SCORES):
+  if (game_is_ended(scores) and scores[Type_of_players.PLAYER] >= MAX_SCORES):
     result = 'WIN '
   else:
     result = 'LOSE'
@@ -122,7 +122,7 @@ print('*--------------------------------------------------------*')
 play = input('\nStart a new Game ? (y/n)\n')
 
 if (type(play) is str and (play == 'y' or play == 'Y' or play == 'yes' or play == 'Yes')):
-  diceGame()
+  dice_game()
 else:
   print('See you soon ;)')
 

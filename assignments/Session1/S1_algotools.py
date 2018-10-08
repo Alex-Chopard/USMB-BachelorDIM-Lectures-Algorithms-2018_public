@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-def averageAboveZero (items):
+def average_above_zero (items):
   """
     Compute the average of an given array only for positive values.
 
@@ -18,35 +18,35 @@ def averageAboveZero (items):
 
   average = -1
   sum = 0
-  itemsLength = len(items)
+  items_length = len(items)
 
   # Don't compute if items is empty
-  if itemsLength > 0:
+  if items_length > 0:
     for item in items:
       if item > 0:
         sum += float(item)
       else:
         # Remove 1 to itemsLength if item isn't an positive value
-        itemsLength -= 1
-    average = sum / itemsLength
+        items_length -= 1
+    average = sum / items_length
   else:
     return ValueError('Items list must not be empty')
 
   return average
 
 # Some test for average_above_zero function
-average = averageAboveZero([2, 5, 10])
-average2 = averageAboveZero([])
-average3 = averageAboveZero([-1, 2, 4])
-average4 = averageAboveZero('sdfndsjk')
+average = average_above_zero([2, 5, 10])
+average_2 = average_above_zero([])
+average_3 = average_above_zero([-1, 2, 4])
+average_4 = average_above_zero('sdfndsjk')
 
 # Print results
 print('Average of [2, 5, 10] is : ' + str(average))
-print('Average of [] is : ' + str(average2))
-print('Average of [-1, 2, 4] is : ' + str(average3))
-print('Average of \'sdfndsjk\' is : ' + str(average4))
+print('Average of [] is : ' + str(average_2))
+print('Average of [-1, 2, 4] is : ' + str(average_3))
+print('Average of \'sdfndsjk\' is : ' + str(average_4))
 
-def maxValue (items):
+def max_value (items):
   """
     Function for found the max value of list
 
@@ -61,36 +61,36 @@ def maxValue (items):
   if type(items) is not list:
     return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
-  itemsLength = len(items)
-  maxVal = None
+  items_length = len(items)
+  max_val = None
 
   # Find max number in items list
-  if itemsLength > 0:
+  if items_length > 0:
     for item in items:
       number = float(item)
-      if maxVal == None or number > maxVal:
-        maxVal = number
+      if max_val == None or number > max_val:
+        max_val = number
   else:
     return ValueError('Items list must not be empty')
 
-  return maxVal, 1
+  return max_val, 1
 
 
-# Some test for maxValue function
-average = maxValue([2, 5, 10])
-average2 = maxValue([])
-average3 = maxValue([-1, 2, 4])
-average4 = maxValue('sdfndsjk')
+# Some test for max_value function
+average = max_value([2, 5, 10])
+average_2 = max_value([])
+average_3 = max_value([-1, 2, 4])
+average_4 = max_value('sdfndsjk')
 
 # Print results
-print('maxValue of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
-print('maxValue of [] is : ' + str(average2))
-print('maxValue of [-1, 2, 4] is : ' + str(average3[1]) + ' and index is : ' + str(average3[0]))
-print('maxValue of \'sdfndsjk\' is : ' + str(average4))
+print('max_value of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
+print('max_value of [] is : ' + str(average_2))
+print('max_value of [-1, 2, 4] is : ' + str(average_3[1]) + ' and index is : ' + str(average_3[0]))
+print('max_value of \'sdfndsjk\' is : ' + str(average_4))
 
 
 
-def reverseTable (items):
+def reverse_table (items):
   """
     Useless function for reverte an list
 
@@ -107,15 +107,15 @@ def reverseTable (items):
 
   return items[::-1]
 
-# Some test for reverseTable function
-reverted = reverseTable([2, 5, 10])
-reverted2 = reverseTable([2, 'dscjk', [1, 2]])
-reverted3 = reverseTable('sdfndsjk')
+# Some test for reverse_table function
+reverted = reverse_table([2, 5, 10])
+reverted_2 = reverse_table([2, 'dscjk', [1, 2]])
+reverted_3 = reverse_table('sdfndsjk')
 
 # Print results
-print('reverseTable of [2, 5, 10] is : ' + str(reverted))
-print('reverseTable of [2, \'dscjk\', [1, 2]] is : ' + str(reverted2))
-print('reverseTable of \'sdfndsjk\' is : ' + str(reverted3))
+print('reverse_table of [2, 5, 10] is : ' + str(reverted))
+print('reverse_table of [2, \'dscjk\', [1, 2]] is : ' + str(reverted_2))
+print('reverse_table of \'sdfndsjk\' is : ' + str(reverted_3))
 
 '''
 def roiBbox (inputImage) :
@@ -138,7 +138,7 @@ print(boundary)
 '''
 
 
-def randomFillSparse (table, k):
+def random_fill_sparse (table, k):
   """
     Function fill k cells at random position with 'X'
 
@@ -161,13 +161,13 @@ def randomFillSparse (table, k):
 
   if (k > shape[0] * shape[1]):
     k = shape[0] * shape[1]
-  xMax = shape[1] - 1
-  yMax = shape[0] - 1
+  x_max = shape[1] - 1
+  y_max = shape[0] - 1
 
   while k > 0:
     k -= 1
-    x = random.randint(0, xMax)
-    y = random.randint(0, yMax)
+    x = random.randint(0, x_max)
+    y = random.randint(0, y_max)
     if (table[y, x] == 'X'):
       k += 1
     else:
@@ -177,18 +177,18 @@ def randomFillSparse (table, k):
 
 
 
-# Some test for randomFillSparse function
-rand = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 2)
-rand2 = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 'dd')
-rand3 = randomFillSparse([['', '', ''], ['', '', '']], 2)
-rand4 = randomFillSparse(np.array([['', '', ''], ['', '', '']]), 20)
+# Some test for random_fill_sparse function
+rand = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 2)
+rand_2 = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 'dd')
+rand_3 = random_fill_sparse([['', '', ''], ['', '', '']], 2)
+rand_4 = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 20)
 
-print('randomFillSparse of np[['', '', ''], ['', '', '']], 2 is : ' + str(rand))
-print('randomFillSparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand2))
-print('randomFillSparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand3))
-print('randomFillSparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand4))
+print('random_fill_sparse of np[['', '', ''], ['', '', '']], 2 is : ' + str(rand))
+print('random_fill_sparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_2))
+print('random_fill_sparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_3))
+print('random_fill_sparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand_4))
 
-def removeWhitespace (string):
+def remove_whitespace (string):
   """
     Useless function how remove all whitespaces of string
 
@@ -203,11 +203,11 @@ def removeWhitespace (string):
 
   return string.replace(' ', '')
 
-sws = removeWhitespace('dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ')
-sws2 = removeWhitespace(561)
+sws = remove_whitespace('dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ')
+sws_2 = remove_whitespace(561)
 
 print('removeWhitespace of \'dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ\' is : ' + str(sws))
-print('removeWhitespace of 561 is : ' + str(sws2))
+print('removeWhitespace of 561 is : ' + str(sws_2))
 
 def shuffle (array):
   """
@@ -226,12 +226,12 @@ def shuffle (array):
   return array
 
 shuf = shuffle([i for i in range(10)])
-shuf2 = shuffle(561)
+shuf_2 = shuffle(561)
 
 print('shuffle of ' + str([i for i in range(10)]) + ' is : ' + str(shuf))
-print('shuffle of 561 is : ' + str(shuf2))
+print('shuffle of 561 is : ' + str(shuf_2))
 
-def sortSelective (array):
+def sort_selective (array):
   """
     Function how sort the given array
 
@@ -261,18 +261,18 @@ def sortSelective (array):
   c = 0
 
   for j in range(n - 1):
-    iMin = j
+    i_min = j
     for i in range(j + 1, n):
       it += 1
-      if (array[i] < array[iMin]):
-        iMin = i
+      if (array[i] < array[i_min]):
+        i_min = i
         c += 1
     
-    if (iMin != j):
+    if (i_min != j):
       #swape value
       tmp = array[j]
-      array[j] = array[iMin]
-      array[iMin] = tmp
+      array[j] = array[i_min]
+      array[i_min] = tmp
       p += 1
       c += 1
 
@@ -281,7 +281,7 @@ def sortSelective (array):
   print(c)
   return array
 
-def sortBubble (array):
+def sort_bubble (array):
   """
     Function how sort the given array
 
@@ -330,11 +330,11 @@ def sortBubble (array):
   return array
 
 array = [10, 15, 7, 1, 3, 3, 9]
-array2 = [10, 15, 7, 1, 3, 3, 9]
+array_2 = [10, 15, 7, 1, 3, 3, 9]
 
-print('[sortBubble] Sorted table = ' + str(sortBubble(array)))
+print('[sortBubble] Sorted table = ' + str(sort_bubble(array)))
 
-print('[sortSelective] Sorted table = ' + str(sortSelective(array2)))
+print('[sortSelective] Sorted table = ' + str(sort_selective(array_2)))
 
 '''
 print('-------------------------------------')
@@ -344,7 +344,7 @@ c = [5, 5, 2, 4, 0, 0, 9, 1, 1, 9, 0, 9, 6, 3, 3, 5, 0, 2, 5, 5, 4, 9, 6, 3, 7, 
 # rand = [random.randint(0, 9) for e in range(500)]
 
 
-print('[50] Sorted table = ' + str(sortBubble(a)))
-print('[100] Sorted table = ' + str(sortBubble(b)))
-print('[500] Sorted table = ' + str(sortBubble(c)))
+print('[50] Sorted table = ' + str(sort_bubble(a)))
+print('[100] Sorted table = ' + str(sort_bubble(b)))
+print('[500] Sorted table = ' + str(sort_bubble(c)))
 '''
