@@ -14,7 +14,7 @@ def average_above_zero (items):
 
   # Don't compute if items isn't an List (array)
   if type(items) is not list:
-    return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
+    raise TypeError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   average = -1
   sum = 0
@@ -23,28 +23,19 @@ def average_above_zero (items):
   # Don't compute if items is empty
   if items_length > 0:
     for item in items:
-      if item > 0:
+      print(str(type(item)))
+      if (type(item) is float or type(item) is int) and item >= 0:
         sum += float(item)
       else:
-        # Remove 1 to itemsLength if item isn't an positive value
+        # Remove 1 to items_length if item isn't an positive value
         items_length -= 1
+    print(items_length)
     average = sum / items_length
   else:
-    return ValueError('Items list must not be empty')
+    raise ValueError('Items list must not be empty')
 
   return average
 
-# Some test for average_above_zero function
-average = average_above_zero([2, 5, 10])
-average_2 = average_above_zero([])
-average_3 = average_above_zero([-1, 2, 4])
-average_4 = average_above_zero('sdfndsjk')
-
-# Print results
-print('Average of [2, 5, 10] is : ' + str(average))
-print('Average of [] is : ' + str(average_2))
-print('Average of [-1, 2, 4] is : ' + str(average_3))
-print('Average of \'sdfndsjk\' is : ' + str(average_4))
 
 def max_value (items):
   """
@@ -75,7 +66,7 @@ def max_value (items):
 
   return max_val, 1
 
-
+'''
 # Some test for max_value function
 average = max_value([2, 5, 10])
 average_2 = max_value([])
@@ -87,7 +78,7 @@ print('max_value of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + s
 print('max_value of [] is : ' + str(average_2))
 print('max_value of [-1, 2, 4] is : ' + str(average_3[1]) + ' and index is : ' + str(average_3[0]))
 print('max_value of \'sdfndsjk\' is : ' + str(average_4))
-
+'''
 
 
 def reverse_table (items):
@@ -106,7 +97,7 @@ def reverse_table (items):
     return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   return items[::-1]
-
+'''
 # Some test for reverse_table function
 reverted = reverse_table([2, 5, 10])
 reverted_2 = reverse_table([2, 'dscjk', [1, 2]])
@@ -116,7 +107,7 @@ reverted_3 = reverse_table('sdfndsjk')
 print('reverse_table of [2, 5, 10] is : ' + str(reverted))
 print('reverse_table of [2, \'dscjk\', [1, 2]] is : ' + str(reverted_2))
 print('reverse_table of \'sdfndsjk\' is : ' + str(reverted_3))
-
+'''
 '''
 def roiBbox (inputImage) :
   """
@@ -176,7 +167,7 @@ def random_fill_sparse (table, k):
   return table
 
 
-
+'''
 # Some test for random_fill_sparse function
 rand = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 2)
 rand_2 = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 'dd')
@@ -187,7 +178,7 @@ print('random_fill_sparse of np[['', '', ''], ['', '', '']], 2 is : ' + str(rand
 print('random_fill_sparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_2))
 print('random_fill_sparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_3))
 print('random_fill_sparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand_4))
-
+'''
 def remove_whitespace (string):
   """
     Useless function how remove all whitespaces of string
@@ -224,13 +215,13 @@ def shuffle (array):
 
   random.shuffle(array)
   return array
-
+'''
 shuf = shuffle([i for i in range(10)])
 shuf_2 = shuffle(561)
 
 print('shuffle of ' + str([i for i in range(10)]) + ' is : ' + str(shuf))
 print('shuffle of 561 is : ' + str(shuf_2))
-
+'''
 def sort_selective (array):
   """
     Function how sort the given array
@@ -328,14 +319,14 @@ def sort_bubble (array):
   print(p)
   print(c)
   return array
-
+'''
 array = [10, 15, 7, 1, 3, 3, 9]
 array_2 = [10, 15, 7, 1, 3, 3, 9]
 
 print('[sortBubble] Sorted table = ' + str(sort_bubble(array)))
 
 print('[sortSelective] Sorted table = ' + str(sort_selective(array_2)))
-
+'''
 '''
 print('-------------------------------------')
 a = [3, 9, 1, 8, 1, 6, 5, 2, 6, 5, 5, 5, 6, 8, 4, 9, 1, 9, 2, 8, 6, 4, 0, 7, 7, 2, 9, 9, 0, 8, 2, 4, 3, 5, 1, 7, 2, 9, 3, 1, 3, 0, 0, 7, 4, 6, 8, 9, 5, 8]
