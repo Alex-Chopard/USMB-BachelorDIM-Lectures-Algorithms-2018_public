@@ -4,7 +4,7 @@ import random
 MAX_SCORES = 100
 
 # Enum for identify types of players
-class Type_of_players (Enum):
+class TypeOfPlayers (Enum):
   PLAYER = 'Player'
   COMPUTER = 'Computer'
 
@@ -19,7 +19,7 @@ def game_is_ended (scores):
     @return: Return True if a player win the game, or False if no user win.
   """
 
-  if (scores[Type_of_players.PLAYER] >= MAX_SCORES or scores[Type_of_players.COMPUTER] >= MAX_SCORES):
+  if (scores[TypeOfPlayers.PLAYER] >= MAX_SCORES or scores[TypeOfPlayers.COMPUTER] >= MAX_SCORES):
     return True
   else:
     return False
@@ -28,17 +28,17 @@ def switch_player (who_play):
   """
     Function for switch the player
 
-    @type whoPlay: Type_of_players
+    @type whoPlay: TypeOfPlayers
     @param whoPlay: The current player
 
-    @rtype: Type_of_players
+    @rtype: TypeOfPlayers
     @return: Return the new user who play
   """
 
-  if (who_play == Type_of_players.PLAYER):
-    who_play = Type_of_players.COMPUTER
+  if (who_play == TypeOfPlayers.PLAYER):
+    who_play = TypeOfPlayers.COMPUTER
   else:
-    who_play = Type_of_players.PLAYER
+    who_play = TypeOfPlayers.PLAYER
 
   return who_play
 
@@ -81,26 +81,26 @@ def dice_game ():
     @return: Return None when the game is ended
   """
   
-  scores = { Type_of_players.PLAYER: 0, Type_of_players.COMPUTER: 0 }
-  who_play = Type_of_players.COMPUTER
+  scores = { TypeOfPlayers.PLAYER: 0, TypeOfPlayers.COMPUTER: 0 }
+  who_play = TypeOfPlayers.COMPUTER
 
   while not game_is_ended(scores):
     print('----------------------------------------------------------')
     print('Scores :')
-    print('     - You : ' + str(scores[Type_of_players.PLAYER]))
-    print('     - Computer : ' + str(scores[Type_of_players.COMPUTER]) + '\n')
+    print('     - You : ' + str(scores[TypeOfPlayers.PLAYER]))
+    print('     - Computer : ' + str(scores[TypeOfPlayers.COMPUTER]) + '\n')
 
     print('How play : ' + str(who_play.value))
 
-    if (who_play == Type_of_players.PLAYER):
-      scores[Type_of_players.PLAYER] += player_played()
+    if (who_play == TypeOfPlayers.PLAYER):
+      scores[TypeOfPlayers.PLAYER] += player_played()
     else:
-      scores[Type_of_players.COMPUTER] += random.randint(1, 6)
+      scores[TypeOfPlayers.COMPUTER] += random.randint(1, 6)
 
     who_play = switch_player(who_play)
 
   result = ''
-  if (game_is_ended(scores) and scores[Type_of_players.PLAYER] >= MAX_SCORES):
+  if (game_is_ended(scores) and scores[TypeOfPlayers.PLAYER] >= MAX_SCORES):
     result = 'WIN '
   else:
     result = 'LOSE'
