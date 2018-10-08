@@ -32,6 +32,8 @@ def test_session1script_exists():
         print('Expected script not found, carrefuly check the assignement instructions ')
         assert False
 
+# ----------- TEST FOR average_above_zero FUNCTION -----------
+
 def test_S1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values > 0
@@ -73,3 +75,43 @@ def test_S1_selective_average_with_string():
         assert False
     except TypeError:
         assert True
+
+# ----------- TEST FOR max_value FUNCTION -----------
+
+def test_S1_max_value():
+    ##
+    # @test validates max_value works fine with integer values > 0
+    assert load_s1_script().max_value([1, 2, 3, 4, 10]) == (10, 4)
+
+def test_S1_max_value_with_negative_value():
+    ##
+    # @test validates max_value works fine with integer values < 0
+    assert load_s1_script().max_value([-1, -2, -3, -4, -10]) == (-1, 0)
+
+def test_S1_max_value_with_max_at_index_0():
+    ##
+    # @test validates max_value works fine with integer values > 0
+    assert load_s1_script().max_value([77, 2, 3, 4, 10]) == (77, 0)
+
+def test_S1_max_value_with_max_at_index_2():
+    ##
+    # @test validates max_value works fine with integer values > 0
+    assert load_s1_script().max_value([1, 2, 42, 4, 10]) == (42, 2)
+
+def test_S1_max_value_with_empty_array():
+  ##
+  # @test validates max_value works fine with empty array
+  try:
+    load_s1_script().max_value([])
+    assert False
+  except ValueError:
+    assert True
+
+def test_S1_max_value_with_no_array_value():
+  ##
+  # @test validates max_value works fine with empty array
+  try:
+    load_s1_script().max_value('array')
+    assert False
+  except TypeError:
+    assert True

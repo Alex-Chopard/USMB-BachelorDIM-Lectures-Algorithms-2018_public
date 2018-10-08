@@ -50,21 +50,23 @@ def max_value (items):
 
    # Don't compute if items isn't an List (array)
   if type(items) is not list:
-    return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
+    raise TypeError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   items_length = len(items)
   max_val = None
+  index = None
 
   # Find max number in items list
   if items_length > 0:
-    for item in items:
+    for key, item in enumerate(items, start = 0):
       number = float(item)
       if max_val == None or number > max_val:
         max_val = number
+        index = key
   else:
-    return ValueError('Items list must not be empty')
+    raise ValueError('Items list must not be empty')
 
-  return max_val, 1
+  return max_val, index
 
 '''
 # Some test for max_value function
@@ -193,13 +195,13 @@ def remove_whitespace (string):
     return ValueError('Type of string must be \'str\' and not ' + str(type(string)))
 
   return string.replace(' ', '')
-
+'''
 sws = remove_whitespace('dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ')
 sws_2 = remove_whitespace(561)
 
 print('removeWhitespace of \'dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ\' is : ' + str(sws))
 print('removeWhitespace of 561 is : ' + str(sws_2))
-
+'''
 def shuffle (array):
   """
     Useless function how shuffle an given list
