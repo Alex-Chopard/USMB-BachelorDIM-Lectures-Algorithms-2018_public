@@ -121,9 +121,9 @@ def random_fill_sparse (table, k):
   """
 
   if (type(k) is not int):
-    return ValueError('Type of k must be \'int\' and not ' + str(type(k)))
+    raise TypeError('Type of k must be \'int\' and not ' + str(type(k)))
   if (type(table) is not np.ndarray):
-    return ValueError('Type of k must be \'numpy.ndarray\' and not ' + str(type(table)))
+    raise TypeError('Type of k must be \'numpy.ndarray\' and not ' + str(type(table)))
 
   shape = table.shape
 
@@ -143,19 +143,6 @@ def random_fill_sparse (table, k):
 
   return table
 
-
-'''
-# Some test for random_fill_sparse function
-rand = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 2)
-rand_2 = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 'dd')
-rand_3 = random_fill_sparse([['', '', ''], ['', '', '']], 2)
-rand_4 = random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 20)
-
-print('random_fill_sparse of np[['', '', ''], ['', '', '']], 2 is : ' + str(rand))
-print('random_fill_sparse of np[['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_2))
-print('random_fill_sparse of [['', '', ''], ['', '', '']], \'dd\' is : ' + str(rand_3))
-print('random_fill_sparse of np[['', '', ''], ['', '', '']], 20 is : ' + str(rand_4))
-'''
 def remove_whitespace (string):
   """
     Useless function how remove all whitespaces of string

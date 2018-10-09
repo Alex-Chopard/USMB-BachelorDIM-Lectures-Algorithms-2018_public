@@ -5,6 +5,7 @@ Unit testing with Python for Session1 function
 """
 
 import os
+import numpy as np
 
 print('Starting test script from working directory : ' + os.getcwd())
 
@@ -138,6 +139,26 @@ def test_reverse_table_with_string():
     # @test validates reverse_table works fine with string instead of array
     try:
         load_s1_script().reverse_table('array')
+        assert False
+    except TypeError:
+        assert True
+
+# ----------- TEST FOR random_fill_sparse FUNCTION -----------
+
+def test_random_fill_sparse_value_with_no_int_k():
+    ##
+    # @test validates random_fill_sparse works fine with k as not Int
+    try:
+        load_s1_script().random_fill_sparse(np.array([['', '', ''], ['', '', '']]), 'dd')
+        assert False
+    except TypeError:
+        assert True
+
+def test_random_fill_sparse_value_with_no_np_array_table():
+    ##
+    # @test validates random_fill_sparse works fine with table as not np.array
+    try:
+        load_s1_script().random_fill_sparse([['', '', ''], ['', '', '']], 2)
         assert False
     except TypeError:
         assert True
