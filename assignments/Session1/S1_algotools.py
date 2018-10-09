@@ -68,21 +68,6 @@ def max_value (items):
 
   return max_val, index
 
-'''
-# Some test for max_value function
-average = max_value([2, 5, 10])
-average_2 = max_value([])
-average_3 = max_value([-1, 2, 4])
-average_4 = max_value('sdfndsjk')
-
-# Print results
-print('max_value of [2, 5, 10] is : ' + str(average[1]) + ' and index is : ' + str(average[0]))
-print('max_value of [] is : ' + str(average_2))
-print('max_value of [-1, 2, 4] is : ' + str(average_3[1]) + ' and index is : ' + str(average_3[0]))
-print('max_value of \'sdfndsjk\' is : ' + str(average_4))
-'''
-
-
 def reverse_table (items):
   """
     Useless function for reverte an list
@@ -96,20 +81,10 @@ def reverse_table (items):
 
   # Don't compute if items isn't an List (array)
   if type(items) is not list:
-    return ValueError('Type of items param need to be \'list\' and not ' + str(type(items)))
+    raise TypeError('Type of items param need to be \'list\' and not ' + str(type(items)))
 
   return items[::-1]
-'''
-# Some test for reverse_table function
-reverted = reverse_table([2, 5, 10])
-reverted_2 = reverse_table([2, 'dscjk', [1, 2]])
-reverted_3 = reverse_table('sdfndsjk')
 
-# Print results
-print('reverse_table of [2, 5, 10] is : ' + str(reverted))
-print('reverse_table of [2, \'dscjk\', [1, 2]] is : ' + str(reverted_2))
-print('reverse_table of \'sdfndsjk\' is : ' + str(reverted_3))
-'''
 '''
 def roiBbox (inputImage) :
   """

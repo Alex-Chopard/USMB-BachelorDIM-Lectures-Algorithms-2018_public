@@ -109,9 +109,35 @@ def test_s1_max_value_with_empty_array():
 
 def test_s1_max_value_with_no_array_value():
   ##
-  # @test validates max_value works fine with empty array
+  # @test validates max_value works fine with an no array value
   try:
     load_s1_script().max_value('array')
     assert False
   except TypeError:
     assert True
+
+# ----------- TEST FOR reverse_table FUNCTION -----------
+
+def test_reverse_table_value():
+    ##
+    # @test validates reverse_table works fine with correct array
+    assert load_s1_script().reverse_table([1, 2, 3, 4]) == [4, 3, 2, 1]
+
+def test_reverse_table_value_negative():
+    ##
+    # @test validates reverse_table works fine with correct array, with negative value
+    assert load_s1_script().reverse_table([1, -2, -3, 4]) == [4, -3, -2, 1]
+
+def test_reverse_table_with_no_int_values():
+    ##
+    # @test validates reverse_table works fine with correct array but with not only number inside
+    assert load_s1_script().reverse_table([1, -2, 'v', [4, 3]]) == [[4, 3], 'v', -2, 1]
+
+def test_reverse_table_with_string():
+    ##
+    # @test validates reverse_table works fine with string instead of array
+    try:
+        load_s1_script().reverse_table('array')
+        assert False
+    except TypeError:
+        assert True
