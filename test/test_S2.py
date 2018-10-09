@@ -34,22 +34,22 @@ def test_session1script_exists():
 
 # ----------- TEST FOR average_above_zero FUNCTION -----------
 
-def test_S1_selective_average_non_zeros_values():
+def test_s1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values > 0
     assert load_s1_script().average_above_zero([1, 2, 3, 4, -7]) == 2.5
 
-def test_S1_selective_average_with_zeros_values():
+def test_s1_selective_average_with_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >= 0
     assert load_s1_script().average_above_zero([0, 1, 2, 3, 4, -7]) == 2.0
 
-def test_S1_selective_average_with_negative_values():
+def test_s1_selective_average_with_negative_values():
     ##
     # @test validates average_above_zero works fine with integer values <= 0
     assert load_s1_script().average_above_zero([0, -7]) == 0
 
-def test_S1_selective_average_with_string_values():
+def test_s1_selective_average_with_string_values():
     ##
     # @test validates average_above_zero works fine with integer values <= 0
     try:
@@ -58,7 +58,7 @@ def test_S1_selective_average_with_string_values():
     except ZeroDivisionError:
         assert True
 
-def test_S1_selective_average_with_empty_values():
+def test_s1_selective_average_with_empty_values():
     ##
     # @test validates average_above_zero works fine with an empty list
     try:
@@ -67,7 +67,7 @@ def test_S1_selective_average_with_empty_values():
     except ValueError:
         assert True
 
-def test_S1_selective_average_with_string():
+def test_s1_selective_average_with_string():
     ##
     # @test validates average_above_zero works fine with an string
     try:
@@ -78,27 +78,27 @@ def test_S1_selective_average_with_string():
 
 # ----------- TEST FOR max_value FUNCTION -----------
 
-def test_S1_max_value():
+def test_s1_max_value():
     ##
     # @test validates max_value works fine with integer values > 0
     assert load_s1_script().max_value([1, 2, 3, 4, 10]) == (10, 4)
 
-def test_S1_max_value_with_negative_value():
+def test_s1_max_value_with_negative_value():
     ##
     # @test validates max_value works fine with integer values < 0
     assert load_s1_script().max_value([-1, -2, -3, -4, -10]) == (-1, 0)
 
-def test_S1_max_value_with_max_at_index_0():
+def test_s1_max_value_with_max_at_index_0():
     ##
     # @test validates max_value works fine with integer values > 0
     assert load_s1_script().max_value([77, 2, 3, 4, 10]) == (77, 0)
 
-def test_S1_max_value_with_max_at_index_2():
+def test_s1_max_value_with_max_at_index_2():
     ##
     # @test validates max_value works fine with integer values > 0
     assert load_s1_script().max_value([1, 2, 42, 4, 10]) == (42, 2)
 
-def test_S1_max_value_with_empty_array():
+def test_s1_max_value_with_empty_array():
   ##
   # @test validates max_value works fine with empty array
   try:
@@ -107,7 +107,7 @@ def test_S1_max_value_with_empty_array():
   except ValueError:
     assert True
 
-def test_S1_max_value_with_no_array_value():
+def test_s1_max_value_with_no_array_value():
   ##
   # @test validates max_value works fine with empty array
   try:
