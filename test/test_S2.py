@@ -162,3 +162,24 @@ def test_random_fill_sparse_value_with_no_np_array_table():
         assert False
     except TypeError:
         assert True
+
+# ----------- TEST FOR remove_whitespace FUNCTION -----------
+
+def test_remove_whitespace_with_one_whitespace():
+    ##
+    # @test validates remove_whitespace works fine with string with 1 whitespace.
+    assert load_s1_script().remove_whitespace('str ing') == 'string'
+
+def test_remove_whitespace_with_many_whitespace():
+    ##
+    # @test validates remove_whitespace works fine with string with many whitespace.
+    assert load_s1_script().remove_whitespace('   s    t   r i   n   g   ') == 'string'
+
+def test_remove_whitespace_with_no_string_value():
+    ##
+    # @test validates remove_whitespace works fine with no string given.
+    try:
+        load_s1_script().remove_whitespace(42)
+        assert False
+    except TypeError:
+        assert True

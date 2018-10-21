@@ -68,6 +68,7 @@ def max_value (items):
 
   return max_val, index
 
+
 def reverse_table (items):
   """
     Useless function for reverte an list
@@ -143,6 +144,7 @@ def random_fill_sparse (table, k):
 
   return table
 
+
 def remove_whitespace (string):
   """
     Useless function how remove all whitespaces of string
@@ -154,16 +156,11 @@ def remove_whitespace (string):
     @return: Return the saem string but whitout whitespaces
   """
   if (type(string) is not str):
-    return ValueError('Type of string must be \'str\' and not ' + str(type(string)))
+    raise TypeError('Type of string must be \'str\' and not ' + str(type(string)))
 
   return string.replace(' ', '')
-'''
-sws = remove_whitespace('dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ')
-sws_2 = remove_whitespace(561)
 
-print('removeWhitespace of \'dfsve fzeqf  f bzh h h    qsjlj qjdl jQO JJ OIJ J   ALJ EJ\' is : ' + str(sws))
-print('removeWhitespace of 561 is : ' + str(sws_2))
-'''
+
 def shuffle (array):
   """
     Useless function how shuffle an given list
