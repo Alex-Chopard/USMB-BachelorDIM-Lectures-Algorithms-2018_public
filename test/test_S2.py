@@ -204,5 +204,36 @@ def test_shuffle_with_array():
 
     assert initSome == sum(result)
 
+# ----------- TEST FOR sort_selective FUNCTION -----------
 
 
+def test_sort_selective_with_no_array_value():
+    ##
+    # @test validates sort_selective works fine with no array given.
+    try:
+        load_s1_script().sort_selective(42)
+        assert False
+    except TypeError:
+        assert True
+
+def test_sort_selective_with_array_of_ten():
+    ##
+    # @test validates sort_selective works fine with array of 10 values.
+    assert load_s1_script().sort_selective([2, 5, 3, 7, 9, 6, 7, 7, 1, 0]) == [0, 1, 2, 3, 5, 6, 7, 7, 7, 9]
+
+# ----------- TEST FOR sort_bubble FUNCTION -----------
+
+
+def test_sort_bubble_with_no_array_value():
+    ##
+    # @test validates sort_bubble works fine with no array given.
+    try:
+        load_s1_script().sort_bubble(42)
+        assert False
+    except TypeError:
+        assert True
+
+def test_sort_bubble_with_array_of_ten():
+    ##
+    # @test validates sort_bubble works fine with array of 10 values.
+    assert load_s1_script().sort_bubble([2, 5, 3, 7, 9, 6, 7, 7, 1, 0]) == [0, 1, 2, 3, 5, 6, 7, 7, 7, 9]

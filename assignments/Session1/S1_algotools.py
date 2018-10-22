@@ -199,8 +199,9 @@ def sort_selective (array):
     @rtype: list
     @return: Return the sorted list
   """
+
   if (type(array) is not list):
-    return ValueError('Type of array must be \'list\' and not ' + str(type(array)))
+    raise TypeError('Type of array must be \'list\' and not ' + str(type(array)))
   
   n = len(array)
   it = 0
@@ -248,8 +249,9 @@ def sort_bubble (array):
     @rtype: list
     @return: Return the sorted list
   """
+
   if (type(array) is not list):
-    return ValueError('Type of array must be \'list\' and not ' + str(type(array)))
+    raise TypeError('Type of array must be \'list\' and not ' + str(type(array)))
 
   n = len(array)
   swapped = True
@@ -275,6 +277,7 @@ def sort_bubble (array):
   print(p)
   print(c)
   return array
+
 '''
 array = [10, 15, 7, 1, 3, 3, 9]
 array_2 = [10, 15, 7, 1, 3, 3, 9]
