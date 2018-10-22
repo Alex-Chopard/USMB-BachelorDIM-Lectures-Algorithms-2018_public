@@ -172,17 +172,12 @@ def shuffle (array):
     @return: Return the shuffled list
   """
   if (type(array) is not list):
-    return ValueError('Type of array must be \'list\' and not ' + str(type(array)))
+    raise TypeError('Type of array must be \'list\' and not ' + str(type(array)))
 
   random.shuffle(array)
   return array
-'''
-shuf = shuffle([i for i in range(10)])
-shuf_2 = shuffle(561)
 
-print('shuffle of ' + str([i for i in range(10)]) + ' is : ' + str(shuf))
-print('shuffle of 561 is : ' + str(shuf_2))
-'''
+
 def sort_selective (array):
   """
     Function how sort the given array
