@@ -23,13 +23,11 @@ def average_above_zero (items):
   # Don't compute if items is empty
   if items_length > 0:
     for item in items:
-      print(str(type(item)))
       if (type(item) is float or type(item) is int) and item >= 0:
         sum += float(item)
       else:
         # Remove 1 to items_length if item isn't an positive value
         items_length -= 1
-    print(items_length)
     average = sum / items_length
   else:
     raise ValueError('Items list must not be empty')
@@ -224,29 +222,19 @@ def sort_selective (array):
     raise TypeError('Type of array must be \'list\' and not ' + str(type(array)))
   
   n = len(array)
-  it = 0
-  p = 0
-  c = 0
 
   for j in range(n - 1):
     i_min = j
     for i in range(j + 1, n):
-      it += 1
       if (array[i] < array[i_min]):
         i_min = i
-        c += 1
     
     if (i_min != j):
-      #swape value
+      # Swape value
       tmp = array[j]
       array[j] = array[i_min]
       array[i_min] = tmp
-      p += 1
-      c += 1
 
-  print(it)
-  print(p)
-  print(c)
   return array
 
 def sort_bubble (array):
@@ -275,26 +263,16 @@ def sort_bubble (array):
 
   n = len(array)
   swapped = True
-  it = 0
-  p = 0
-  c = 0
 
   while swapped:
     swapped = False
 
     for i in range(n - 1):
-      it += 1
       if array[i] > array[i + 1]:
         #swape value
         tmp = array[i]
         array[i] = array[i + 1]
         array[i + 1] = tmp
         swapped = True
-        c += 1
-        p += 1
-  
-  print(it)
-  print(p)
-  print(c)
-  return array
 
+  return array
