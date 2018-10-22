@@ -143,6 +143,32 @@ def test_reverse_table_with_string():
     except TypeError:
         assert True
 
+# ----------- TEST FOR roi_bbox FUNCTION -----------
+
+def test_roi_bbox_no_np_array():
+    ##
+    # @test validates roi_bbox works fine with no np.array given.
+    try:
+        load_s1_script().roi_bbox(42)
+        assert False
+    except TypeError:
+        assert True
+
+
+def test_roi_bbox_with_7_7_array():
+    ##
+    # @test validates roi_bbox works fine with 7*7 array.
+    assert load_s1_script().roi_bbox(np.array([
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ])).tolist() == [[2, 1], [5, 1], [2, 4], [5, 4]]
+
+
 # ----------- TEST FOR random_fill_sparse FUNCTION -----------
 
 def test_random_fill_sparse_value_with_no_int_k():

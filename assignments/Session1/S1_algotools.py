@@ -86,25 +86,45 @@ def reverse_table (items):
 
   return items[::-1]
 
-'''
-def roiBbox (inputImage) :
+
+def roi_bbox (input_image) :
   """
     Function compute the boundary box of an binary image
 
-    @type inputImage: numpy array
-    @param inputImage: The binary image
+    @type input_image: numpy array
+    @param input_image: The binary image
 
     @rtype: numpy array
     @return: Return boundary box of an binary image
   """
 
-  return False
+  if (type(input_image) is not np.ndarray):
+    raise TypeError('Type of k must be \'numpy.ndarray\' and not ' + str(type(input_image)))
 
-# Some test for roiBbox function
-boundary = roiBbox(np.array([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
 
-print(boundary)
-'''
+  height_min = -1
+  height_max = -1
+  width_min = -1
+  width_max = -1
+
+  for index, row in enumerate(input_image):
+    max = max_value(row.tolist())[0]
+    if max != 0:
+      if height_min == -1:
+        height_min = index
+      height_max = index
+
+  input_image_rotated = np.rot90(input_image)
+
+  for index, row in enumerate(input_image_rotated):
+    length = row.size - 1
+    max = max_value(row.tolist())[0]
+    if max != 0:
+      if width_max == -1:
+        width_max = length - index
+      width_min = length - index
+
+  return np.array([[width_min, height_min], [width_max, height_min], [width_min, height_max], [width_max, height_max]])
 
 
 def random_fill_sparse (table, k):
