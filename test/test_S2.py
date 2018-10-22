@@ -198,11 +198,11 @@ def test_shuffle_with_no_array_value():
 def test_shuffle_with_array():
     ##
     # @test validates shuffle works fine with array, test if all number are there.
-    arrayTest = [i for i in range(10)]
-    initSome = sum(arrayTest)
-    result = load_s1_script().shuffle(arrayTest)
+    array_test = [i for i in range(10)]
+    init_sum = sum(array_test)
+    result = load_s1_script().shuffle(array_test)
 
-    assert initSome == sum(result)
+    assert init_sum == sum(result)
 
 # ----------- TEST FOR sort_selective FUNCTION -----------
 
