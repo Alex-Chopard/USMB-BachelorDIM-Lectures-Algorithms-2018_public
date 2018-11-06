@@ -99,21 +99,15 @@ def roi_bbox (input_image) :
   if (type(input_image) is not np.ndarray):
     raise TypeError('Type of k must be \'numpy.ndarray\' and not ' + str(type(input_image)))
 
+  x = { 'min': None, 'max': None }
+  y = { 'min': None, 'max': None }
 
-  height_min = -1
-  height_max = -1
-  width_min = -1
-  width_max = -1
+  comput_min_max(y, input_image)
 
-  for index, row in enumerate(input_image):
-    max = max_value(row.tolist())[0]
-    if max != 0:
-      if height_min == -1:
-        height_min = index
-      height_max = index
+  input_image_rotated = np.rot90(input_image, 3)
+  comput_min_max(x, input_image_rotated)
 
-  input_image_rotated = np.rot90(input_image)
-
+  '''
   for index, row in enumerate(input_image_rotated):
     length = row.size - 1
     max = max_value(row.tolist())[0]
@@ -121,9 +115,17 @@ def roi_bbox (input_image) :
       if width_max == -1:
         width_max = length - index
       width_min = length - index
+  '''
+  print(np.array([[x['min'], y['min']], [x['max'], y['min']], [x['min'], y['max']], [x['max'], y['max']]]))
+  return np.array([[x['min'], y['min']], [x['max'], y['min']], [x['min'], y['max']], [x['max'], y['max']]])
 
-  return np.array([[width_min, height_min], [width_max, height_min], [width_min, height_max], [width_max, height_max]])
-
+def comput_min_max (coo, mat):
+  for index, row in enumerate(mat):
+    max = max_value(row.tolist())[0]
+    if max != 0:
+      if coo['max'] == None:
+        coo['max'] = index
+      coo['min'] = index
 
 def random_fill_sparse (table, k):
   """
