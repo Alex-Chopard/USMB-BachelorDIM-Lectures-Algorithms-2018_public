@@ -107,25 +107,15 @@ def roi_bbox (input_image) :
   input_image_rotated = np.rot90(input_image, 3)
   comput_min_max(x, input_image_rotated)
 
-  '''
-  for index, row in enumerate(input_image_rotated):
-    length = row.size - 1
-    max = max_value(row.tolist())[0]
-    if max != 0:
-      if width_max == -1:
-        width_max = length - index
-      width_min = length - index
-  '''
-  print(np.array([[x['min'], y['min']], [x['max'], y['min']], [x['min'], y['max']], [x['max'], y['max']]]))
   return np.array([[x['min'], y['min']], [x['max'], y['min']], [x['min'], y['max']], [x['max'], y['max']]])
 
 def comput_min_max (coo, mat):
   for index, row in enumerate(mat):
     max = max_value(row.tolist())[0]
     if max != 0:
-      if coo['max'] == None:
-        coo['max'] = index
-      coo['min'] = index
+      if coo['min'] == None:
+        coo['min'] = index
+      coo['max'] = index
 
 def random_fill_sparse (table, k):
   """
